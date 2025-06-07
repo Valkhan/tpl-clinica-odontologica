@@ -1,0 +1,605 @@
+// Variáveis
+$primary-color: #2B8CE8
+$secondary-color: #1E6BBF
+$accent-color: #00D4AA
+$text-dark: #2C3E50
+$text-light: #7F8C8D
+$white: #FFFFFF
+$light-bg: #F8FAFC
+$success: #27AE60
+$warning: #F39C12
+$danger: #E74C3C
+
+// Fontes
+$font-primary: 'Poppins', sans-serif
+
+// Breakpoints
+$mobile: 480px
+$tablet: 768px
+$desktop: 1024px
+$large: 1200px
+
+// Reset e configurações globais
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+
+html
+  scroll-behavior: smooth
+
+body
+  font-family: $font-primary
+  color: $text-dark
+  line-height: 1.6
+  overflow-x: hidden
+
+// Utilitários
+.container
+  max-width: 1200px
+  margin: 0 auto
+  padding: 0 20px
+
+.section-header
+  text-align: center
+  margin-bottom: 50px
+  
+  h2
+    font-size: 2.5rem
+    font-weight: 700
+    color: $text-dark
+    margin-bottom: 15px
+    position: relative
+    
+    &::after
+      content: ''
+      position: absolute
+      bottom: -10px
+      left: 50%
+      transform: translateX(-50%)
+      width: 60px
+      height: 4px
+      background: linear-gradient(90deg, $primary-color, $accent-color)
+      border-radius: 2px
+  
+  p
+    font-size: 1.1rem
+    color: $text-light
+    max-width: 600px
+    margin: 0 auto
+
+// Botões
+.btn
+  display: inline-flex
+  align-items: center
+  gap: 8px
+  padding: 12px 24px
+  border: none
+  border-radius: 30px
+  font-size: 1rem
+  font-weight: 600
+  text-decoration: none
+  cursor: pointer
+  transition: all 0.3s ease
+  
+  &.btn-primary
+    background: linear-gradient(135deg, $primary-color, $secondary-color)
+    color: $white
+    
+    &:hover
+      transform: translateY(-2px)
+      box-shadow: 0 10px 25px rgba($primary-color, 0.3)
+  
+  &.btn-whatsapp
+    background: $success
+    color: $white
+    
+    &:hover
+      background: darken($success, 10%)
+      transform: translateY(-2px)
+      box-shadow: 0 10px 25px rgba($success, 0.3)
+
+// Header
+.header
+  position: fixed
+  top: 0
+  width: 100%
+  background: rgba($white, 0.95)
+  backdrop-filter: blur(10px)
+  z-index: 1000
+  transition: all 0.3s ease
+
+.navbar
+  padding: 15px 0
+
+.nav-container
+  display: flex
+  justify-content: space-between
+  align-items: center
+  max-width: 1200px
+  margin: 0 auto
+  padding: 0 20px
+
+.nav-logo
+  display: flex
+  align-items: center
+  gap: 10px
+  font-size: 1.5rem
+  font-weight: 700
+  color: $primary-color
+  
+  i
+    font-size: 2rem
+
+.nav-menu
+  display: flex
+  list-style: none
+  gap: 30px
+  
+  @media (max-width: $tablet)
+    position: fixed
+    left: -100%
+    top: 70px
+    flex-direction: column
+    background-color: $white
+    width: 100%
+    text-align: center
+    transition: 0.3s
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05)
+    padding: 20px 0
+    
+    &.active
+      left: 0
+
+.nav-link
+  color: $text-dark
+  text-decoration: none
+  font-weight: 500
+  transition: color 0.3s ease
+  
+  &:hover
+    color: $primary-color
+
+.hamburger
+  display: none
+  flex-direction: column
+  cursor: pointer
+  
+  @media (max-width: $tablet)
+    display: flex
+  
+  .bar
+    width: 25px
+    height: 3px
+    background-color: $text-dark
+    margin: 3px 0
+    transition: 0.3s
+    
+    &:nth-child(1)
+      &.active
+        transform: rotate(-45deg) translate(-5px, 6px)
+    
+    &:nth-child(2)
+      &.active
+        opacity: 0
+    
+    &:nth-child(3)
+      &.active
+        transform: rotate(45deg) translate(-5px, -6px)
+
+// Hero Section
+.hero
+  display: flex
+  align-items: center
+  min-height: 100vh
+  padding: 100px 0 50px
+  background: linear-gradient(135deg, $light-bg 0%, rgba($primary-color, 0.1) 100%)
+  
+  @media (max-width: $tablet)
+    flex-direction: column
+    text-align: center
+    padding: 120px 20px 50px
+
+.hero-content
+  flex: 1
+  padding: 0 20px
+  
+  h1
+    font-size: 3.5rem
+    font-weight: 700
+    color: $text-dark
+    margin-bottom: 20px
+    line-height: 1.2
+    
+    @media (max-width: $tablet)
+      font-size: 2.5rem
+    
+    @media (max-width: $mobile)
+      font-size: 2rem
+  
+  p
+    font-size: 1.2rem
+    color: $text-light
+    margin-bottom: 30px
+    max-width: 500px
+
+.hero-buttons
+  display: flex
+  gap: 20px
+  
+  @media (max-width: $mobile)
+    flex-direction: column
+    align-items: center
+
+.hero-image
+  flex: 1
+  text-align: center
+  
+  img
+    max-width: 100%
+    height: auto
+    border-radius: 20px
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1)
+
+// About Section
+.about
+  padding: 80px 0
+  background: $white
+
+.about-content
+  display: grid
+  grid-template-columns: 1fr 1fr
+  gap: 50px
+  align-items: center
+  
+  @media (max-width: $tablet)
+    grid-template-columns: 1fr
+    gap: 30px
+
+.about-text
+  h3
+    font-size: 1.8rem
+    font-weight: 600
+    color: $text-dark
+    margin-bottom: 15px
+    margin-top: 30px
+    
+    &:first-child
+      margin-top: 0
+  
+  p
+    color: $text-light
+    margin-bottom: 20px
+    line-height: 1.8
+
+.schedule
+  margin-top: 40px
+  
+  h3
+    margin-bottom: 20px
+
+.schedule-grid
+  display: grid
+  gap: 15px
+
+.schedule-item
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 15px 20px
+  background: $light-bg
+  border-radius: 10px
+  border-left: 4px solid $primary-color
+  
+  .day
+    font-weight: 600
+    color: $text-dark
+  
+  .time
+    color: $primary-color
+    font-weight: 500
+
+.about-image
+  img
+    width: 100%
+    height: auto
+    border-radius: 15px
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1)
+
+// Services Section
+.services
+  padding: 80px 0
+  background: $light-bg
+
+.services-grid
+  display: grid
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
+  gap: 30px
+
+.service-card
+  background: $white
+  padding: 40px 30px
+  border-radius: 15px
+  text-align: center
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1)
+  transition: all 0.3s ease
+  
+  &:hover
+    transform: translateY(-10px)
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15)
+
+.service-icon
+  width: 80px
+  height: 80px
+  background: linear-gradient(135deg, $primary-color, $accent-color)
+  border-radius: 50%
+  display: flex
+  align-items: center
+  justify-content: center
+  margin: 0 auto 20px
+  
+  i
+    font-size: 2rem
+    color: $white
+
+.service-card
+  h3
+    font-size: 1.5rem
+    font-weight: 600
+    color: $text-dark
+    margin-bottom: 15px
+  
+  p
+    color: $text-light
+    line-height: 1.6
+
+// Contact Section
+.contact
+  padding: 80px 0
+  background: $white
+
+.contact-content
+  display: grid
+  grid-template-columns: 1fr 1fr
+  gap: 50px
+  margin-bottom: 50px
+  
+  @media (max-width: $tablet)
+    grid-template-columns: 1fr
+    gap: 30px
+
+.contact-info
+  display: flex
+  flex-direction: column
+  gap: 30px
+
+.info-item
+  display: flex
+  align-items: flex-start
+  gap: 20px
+
+.info-icon
+  width: 60px
+  height: 60px
+  background: linear-gradient(135deg, $primary-color, $accent-color)
+  border-radius: 50%
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-shrink: 0
+  
+  i
+    font-size: 1.5rem
+    color: $white
+
+.info-text
+  h3
+    font-size: 1.3rem
+    font-weight: 600
+    color: $text-dark
+    margin-bottom: 5px
+  
+  p
+    color: $text-light
+    line-height: 1.6
+    
+    a
+      color: $primary-color
+      text-decoration: none
+      
+      &:hover
+        text-decoration: underline
+
+// Form
+.contact-form
+  background: $light-bg
+  padding: 40px
+  border-radius: 15px
+
+.form-group
+  margin-bottom: 20px
+
+.form-group input,
+.form-group select,
+.form-group textarea
+  width: 100%
+  padding: 15px 20px
+  border: 2px solid transparent
+  border-radius: 10px
+  font-size: 1rem
+  font-family: $font-primary
+  background: $white
+  transition: all 0.3s ease
+  
+  &:focus
+    outline: none
+    border-color: $primary-color
+    box-shadow: 0 0 0 3px rgba($primary-color, 0.1)
+
+.form-group textarea
+  resize: vertical
+  min-height: 120px
+
+.map-container
+  border-radius: 15px
+  overflow: hidden
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1)
+
+// Footer
+.footer
+  background: $text-dark
+  color: $white
+  padding: 50px 0 20px
+
+.footer-content
+  display: grid
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
+  gap: 40px
+  margin-bottom: 30px
+
+.footer-section
+  h3
+    font-size: 1.3rem
+    font-weight: 600
+    margin-bottom: 20px
+    color: $white
+  
+  p
+    color: lighten($text-light, 10%)
+    margin-bottom: 10px
+    display: flex
+    align-items: center
+    gap: 10px
+    
+    i
+      color: $primary-color
+      width: 20px
+  
+  ul
+    list-style: none
+    
+    li
+      color: lighten($text-light, 10%)
+      margin-bottom: 8px
+      position: relative
+      padding-left: 15px
+      
+      &::before
+        content: '✓'
+        position: absolute
+        left: 0
+        color: $accent-color
+
+.footer-logo
+  display: flex
+  align-items: center
+  gap: 10px
+  font-size: 1.5rem
+  font-weight: 700
+  color: $primary-color
+  margin-bottom: 15px
+  
+  i
+    font-size: 2rem
+
+.footer-bottom
+  border-top: 1px solid lighten($text-dark, 10%)
+  padding-top: 20px
+  text-align: center
+  color: lighten($text-light, 10%)
+  
+  a
+    color: $primary-color
+    text-decoration: none
+    
+    &:hover
+      text-decoration: underline
+
+// WhatsApp Float
+.whatsapp-float
+  position: fixed
+  bottom: 30px
+  right: 30px
+  z-index: 1000
+  
+  a
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 60px
+    height: 60px
+    background: $success
+    border-radius: 50%
+    color: $white
+    font-size: 1.8rem
+    text-decoration: none
+    box-shadow: 0 5px 15px rgba($success, 0.4)
+    transition: all 0.3s ease
+    animation: pulse 2s infinite
+    
+    &:hover
+      transform: scale(1.1)
+      box-shadow: 0 10px 25px rgba($success, 0.5)
+
+@keyframes pulse
+  0%
+    box-shadow: 0 0 0 0 rgba($success, 0.7)
+  
+  70%
+    box-shadow: 0 0 0 20px rgba($success, 0)
+  
+  100%
+    box-shadow: 0 0 0 0 rgba($success, 0)
+
+// Responsividade adicional
+@media (max-width: $mobile)
+  .section-header h2
+    font-size: 2rem
+  
+  .hero-content h1
+    font-size: 1.8rem
+  
+  .service-card,
+  .contact-form
+    padding: 30px 20px
+  
+  .whatsapp-float
+    bottom: 20px
+    right: 20px
+    
+    a
+      width: 50px
+      height: 50px
+      font-size: 1.5rem
+
+// Animações
+@keyframes fadeInUp
+  from
+    opacity: 0
+    transform: translateY(30px)
+  
+  to
+    opacity: 1
+    transform: translateY(0)
+
+.fade-in-up
+  animation: fadeInUp 0.6s ease-out
+
+// Estados de loading
+.loading
+  opacity: 0.7
+  pointer-events: none
+
+// Scrollbar personalizada
+::-webkit-scrollbar
+  width: 8px
+
+::-webkit-scrollbar-track
+  background: $light-bg
+
+::-webkit-scrollbar-thumb
+  background: $primary-color
+  border-radius: 4px
+  
+  &:hover
+    background: $secondary-color
